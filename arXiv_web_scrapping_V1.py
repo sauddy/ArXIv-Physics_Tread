@@ -1,5 +1,5 @@
 '''
-About: This script scrapes the ArXiv for recent and old papers. We are only considering Physics papers in the last 5 year.
+About: This script scrapes the ArXiv for recent and old papers. We are only considering Physics papers in the last 5 years.
 Author: Ramit Dey and Sayantan Auddy
 Created : 4 June 2019
 
@@ -16,7 +16,7 @@ import requests
 import csv
 
 
-category = 'gr-qc' ## specify the category that for the paper. For example gr-qc
+category = 'gr-qc' ## specify the category of research paper. For example gr-qc
 
 start_year = 18
 end_year = 19 
