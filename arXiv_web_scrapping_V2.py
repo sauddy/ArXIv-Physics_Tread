@@ -33,10 +33,10 @@ for year_number in range(start_year,end_year): ## the last year in not included
 	csv_writer.writerow(['Title','Authors'])
 
 
-	skip_list = ['0','2000','4000']
+	# skip_list = ['0','2000','4000']
 
 	## for shorter list just use '0'
-	# skip_list = ['0']
+	skip_list = ['0']
 	for skip in skip_list: ## this loops over next page specified by the skip valuerange in ArXiv .
 		
 
@@ -56,6 +56,8 @@ for year_number in range(start_year,end_year): ## the last year in not included
 
 		title = content.find('div',class_='list-title mathjax')
 		authors = content.find('div',class_='list-authors')
+		
+
 		# print(title.text)
 		# print(authors.text)
 		
@@ -67,7 +69,7 @@ for year_number in range(start_year,end_year): ## the last year in not included
 		for title, authors in zip(content.find_all('div',class_='list-title mathjax'),content.find_all('div',class_='list-authors')):
 			article_title =title.text.split(':') ######### TO split the title line from ':'	
 			article_authors = authors.text.split(':')
-			# print(article_author)
-			csv_writer.writerow([":".join(article_title[1:]),article_authors[1]]) ### To get the title text only and not the word "Title" and only the authors
+			print(article_authors[1].replace('\n',''))
+			csv_writer.writerow([":".join(article_title[1:]),article_authors[1].replace('\n','')]) ### To get the title text only and not the word "Title" and only the authors
 	csv_file.close()
 	print("The CSV file is ready ")
